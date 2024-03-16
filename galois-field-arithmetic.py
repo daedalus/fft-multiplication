@@ -37,11 +37,7 @@ def find_ring(k):
     while True:
         N = (t<<k) + 1
         for r in range(2, t+2):
-            s = r
-            for i in range(k-1):
-                s *= s
-                s %= N
-            if N-s == 1:
+            if N-pow(r,1<<(k-1),N) == 1:
                 return N, r
         t += 1
 
